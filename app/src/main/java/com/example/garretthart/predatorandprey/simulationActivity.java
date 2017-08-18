@@ -9,7 +9,7 @@ public class simulationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simulation);
-        System.out.println("HELP!");
+        System.out.println("HELP ME!");
         //git update
     }
 }
