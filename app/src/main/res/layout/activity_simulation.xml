@@ -16,11 +16,12 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_centerVertical="false"
         android:layout_centerHorizontal="true"
-        android:columnCount="5"
+        android:layout_alignParentTop="true"
+        android:columnCount="20"
         android:id="@+id/cellGrid">
-
     </GridLayout>
+
 </RelativeLayout>
 

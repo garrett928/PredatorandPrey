@@ -15,7 +15,7 @@ public class PredatorAndPreyModel {
     public TextView[][] cell2dArray;
 
     PredatorAndPreyModel(){
-        numberOfCells = 50;
+        numberOfCells = 600;
         cell1dArray = new TextView[numberOfCells];
     }
 
