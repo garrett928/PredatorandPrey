@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
- <stroke
-     android:color="@color/predatorColor"
-     android:width="2dp"
- />
  <size
-     android:height="@dimen/cellSize"
-     android:width="@dimen/cellSize"
+     android:height="@dimen/cellHeight"
+     android:width="@dimen/cellWidth"
      />
  <solid android:color="@color/predatorColor"/>
 </shape>

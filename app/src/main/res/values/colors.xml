@@ -6,5 +6,6 @@
     <color name="black">#000000</color>
     <color name="predatorColor">#ff2000</color>
     <color name="preyColor">#20af44</color>
+    <color name="white">#FFFFFF</color>
 
 </resources>

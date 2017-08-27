@@ -1,15 +1,13 @@
 package com.example.garretthart.predatorandprey;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Xml;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.Random;
 /*
 finally able to put cells on a grid and change their background.
 the randomize button is just to make sure the cells are capable of changing their backgrounds
@@ -23,12 +21,6 @@ public class simulationActivity extends AppCompatActivity {
     GridLayout cellGrid;
     PredatorAndPreyModel predatorPreyModel;
 
-    String[] cellStates = new String[]{
-            "",
-            "R.drawable.predator",
-            "R.drawable.prey",
-            "R.drawable.nothing"
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +31,13 @@ public class simulationActivity extends AppCompatActivity {
         cellGrid = (GridLayout) findViewById(R.id.cellGrid);
 
         for (int i = 0; i < predatorPreyModel.numberOfCells; i++) {
-            TextView cell = new TextView(this);
-            cell.setBackgroundResource(R.drawable.nothing);
-            predatorPreyModel.cell1dArray[i] = cell;
+            Cell cell = new Cell(this);
+            cell.makeNothing();
+            predatorPreyModel.cellArray[i] = cell;
         }
 
         for (int i = 0; i < predatorPreyModel.numberOfCells; i++) {
-            cellGrid.addView(predatorPreyModel.cell1dArray[i] );
+            cellGrid.addView(predatorPreyModel.cellArray[i] );
         }
 
     }
@@ -74,9 +66,7 @@ public class simulationActivity extends AppCompatActivity {
     //method called when randomized button is presssed
     //the button actual just makes them all prey
     void randomizeCells() {
-        for(int i = 0; i < predatorPreyModel.numberOfCells; i ++){
-            predatorPreyModel.cell1dArray[i].setBackgroundResource(R.drawable.prey);
-        }
+       predatorPreyModel.randomizeCells();
     }
 
 }
