@@ -19,8 +19,8 @@
         android:layout_centerVertical="false"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:rowCount="@integer/rowCount"
-        android:columnCount="@integer/colCount"
+        android:rowCount="55"
+        android:columnCount="38"
         android:id="@+id/cellGrid">
     </GridLayout>
 

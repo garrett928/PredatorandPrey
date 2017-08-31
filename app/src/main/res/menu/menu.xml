@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/randomizeItem"
-        android:title="Randomize"
-/>
+        android:title="Randomize" />
+   <item
+       android:id="@+id/makeGrouping"
+       android:title="Make all...">
+        <menu>
+        <item android:title="Nothing"
+            android:id="@+id/makeNothingItem"/>
+
+        <item android:title="Predator"
+            android:id="@+id/makePredatorItem"/>
+
+        <item android:title="Prey"
+            android:id="@+id/makePreyItem"/>
+        </menu>
+      </item>
+
+    <item android:title="Move Cell"
+        android:id="@+id/moveCellItem"
+        android:enabled="true"/>
 </menu>

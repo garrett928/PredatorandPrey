@@ -31,7 +31,7 @@ public class simulationActivity extends AppCompatActivity {
         cellGrid = (GridLayout) findViewById(R.id.cellGrid);
 
         for (int i = 0; i < predatorPreyModel.numberOfCells; i++) {
-            Cell cell = new Cell(this);
+            Cell cell = new Cell(this, i,predatorPreyModel);
             cell.makeNothing();
             predatorPreyModel.cellArray[i] = cell;
         }
@@ -59,6 +59,18 @@ public class simulationActivity extends AppCompatActivity {
             case R.id.randomizeItem:
                 randomizeCells();
                 return true;
+            case R.id.moveCellItem:
+                moveCells();
+                return true;
+            case R.id.makeNothingItem:
+                makeAllNothing();
+                return true;
+            case R.id.makePredatorItem:
+                makeAllPredator();
+                return true;
+            case R.id.makePreyItem:
+                makeAllPrey();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -69,5 +81,30 @@ public class simulationActivity extends AppCompatActivity {
        predatorPreyModel.randomizeCells();
     }
 
+    void makeAllNothing(){
+        for (int i = 0; i < predatorPreyModel.numberOfCells; i++) {
+            predatorPreyModel.cellArray[i].makeNothing();;
+        }
+    }
+
+    void makeAllPredator(){
+        for (int i = 0; i < predatorPreyModel.numberOfCells; i++) {
+            predatorPreyModel.cellArray[i].makePredator();;
+        }
+    }
+
+    void makeAllPrey(){
+        for (int i = 0; i < predatorPreyModel.numberOfCells; i++) {
+            predatorPreyModel.cellArray[i].makePrey();;
+        }
+    }
+
+
+    //this function is not working right now
+    //idk why but the rest of the program is
+    //in a good state
+    void moveCells(){
+        predatorPreyModel.moveCell(1000);
+    }
 }
 

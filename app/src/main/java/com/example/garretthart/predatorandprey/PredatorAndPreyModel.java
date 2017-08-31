@@ -16,6 +16,9 @@ public class PredatorAndPreyModel {
     public Cell[] cellArray;
     private CELL_STATES[] cellStatesArray;
 
+    int cellsPerRow = 38;
+    int cellsPerCol = 55;
+
     private  enum CELL_STATES{
         nothing(0),
         predator(1),
@@ -36,6 +39,40 @@ public class PredatorAndPreyModel {
 
 
 
+    void moveCell(int index){
+        double value = Math.random();
+            if (value <= .25) {
+                moveUp(index);
+            }
+            if (value > .25 && value <= .50) {
+                moveDown(index);
+            }
+            if (value > .50 && value <= 75) {
+                moveLeft(index);
+            }
+            if (value > .75 && value <= 1) {
+                moveRight(index);
+            }
+    }
+
+    private  void moveDown(int index){
+        index = index + cellsPerRow;
+        cellArray[index].makeNothing();
+    }
+
+    private void moveUp(int index){
+        index = index - cellsPerRow;
+        cellArray[index].makeNothing();
+    }
+
+    private void moveLeft(int index){
+        index = index - 1;
+        cellArray[index].makeNothing();
+    }
+    private void moveRight(int index){
+        index = index + 1;
+        cellArray[index].makeNothing();
+    }
 
     public void randomizeCells() {
         double value = Math.random();

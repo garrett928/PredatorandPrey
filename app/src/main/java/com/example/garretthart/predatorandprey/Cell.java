@@ -12,10 +12,15 @@ public class Cell extends ImageView {
     boolean isNothing = false;
     boolean isPredator = false;
     boolean isPrey = false;
+    PredatorAndPreyModel predatorAndPreyModel;
+
+    int index;
 
 
-    public Cell(Context c){
+    public Cell(Context c,int index, PredatorAndPreyModel parrent){
         super(c);
+        predatorAndPreyModel = parrent;
+        this.index = index;
     }
 
     public void makeNothing(){
@@ -38,5 +43,6 @@ public class Cell extends ImageView {
         this.isPrey = true;
         this.setBackgroundResource(R.drawable.prey);
     }
+
 
 }
