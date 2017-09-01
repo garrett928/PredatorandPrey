@@ -1,6 +1,8 @@
 package com.example.garretthart.predatorandprey;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +24,7 @@ public class simulationActivity extends AppCompatActivity {
     PredatorAndPreyModel predatorPreyModel;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +42,6 @@ public class simulationActivity extends AppCompatActivity {
         for (int i = 0; i < predatorPreyModel.numberOfCells; i++) {
             cellGrid.addView(predatorPreyModel.cellArray[i] );
         }
-
     }
 
     @Override
@@ -59,8 +61,8 @@ public class simulationActivity extends AppCompatActivity {
             case R.id.randomizeItem:
                 randomizeCells();
                 return true;
-            case R.id.moveCellItem:
-                moveCells();
+            case R.id.startItem:
+                start();
                 return true;
             case R.id.makeNothingItem:
                 makeAllNothing();
@@ -75,6 +77,23 @@ public class simulationActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private class GameLoop extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+            for (int i = 0; i < predatorPreyModel.numberOfCells; i++) {
+                predatorPreyModel.moveCell(i);
+            }
+            return "";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+        }
+    }
+
+
     //method called when randomized button is presssed
     //the button actual just makes them all prey
     void randomizeCells() {
@@ -103,8 +122,12 @@ public class simulationActivity extends AppCompatActivity {
     //this function is not working right now
     //idk why but the rest of the program is
     //in a good state
-    void moveCells(){
-        predatorPreyModel.moveCell(1000);
+    void start(){
+        for(int j = 0; j < 200; j++) {
+            GameLoop gameLoop = new GameLoop();
+            gameLoop.execute();
+            Log.d("loop","times = "  + j);
+        }
     }
 }
 

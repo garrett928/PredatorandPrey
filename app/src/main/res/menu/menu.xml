@@ -17,7 +17,7 @@
         </menu>
       </item>
 
-    <item android:title="Move Cell"
-        android:id="@+id/moveCellItem"
+    <item android:title="Start"
+        android:id="@+id/startItem"
         android:enabled="true"/>
 </menu>

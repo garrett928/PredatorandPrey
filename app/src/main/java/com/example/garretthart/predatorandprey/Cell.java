@@ -12,6 +12,7 @@ public class Cell extends ImageView {
     boolean isNothing = false;
     boolean isPredator = false;
     boolean isPrey = false;
+    int id;
     PredatorAndPreyModel predatorAndPreyModel;
 
     int index;
@@ -27,6 +28,7 @@ public class Cell extends ImageView {
         this.isNothing = true;
         this.isPredator = false;
         this.isPrey = false;
+        int id = 0;
         this.setBackgroundResource(R.drawable.nothing);
     }
 
@@ -34,6 +36,7 @@ public class Cell extends ImageView {
         this.isNothing = false;
         this.isPredator = true;
         this.isPrey = false;
+        int id = 1;
         this.setBackgroundResource(R.drawable.predator);
     }
 
@@ -41,6 +44,7 @@ public class Cell extends ImageView {
         this.isNothing = false;
         this.isPredator = false;
         this.isPrey = true;
+        int id = 2;
         this.setBackgroundResource(R.drawable.prey);
     }
 
